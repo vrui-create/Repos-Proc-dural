@@ -1,0 +1,34 @@
+using Components.ProceduralGeneration;
+using Cysharp.Threading.Tasks;
+using System.Threading;
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Procedurel Generation Method/New Procedural mass continent")]
+public class Procedural_mass_continentale : ProceduralGenerationMethod
+{
+    protected override async UniTask ApplyGeneration(CancellationToken cancellationToken)
+    {
+
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        // Create and configure FastNoise object
+        FastNoiseLite noise = new FastNoiseLite();
+        noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+
+        // Gather noise data
+        float[,] noiseData = new float[128, 128];
+
+        for (int x = 0; x < 128; x++)
+        {
+            for (int y = 0; y < 128; y++)
+            {
+                noiseData[x, y] = noise.GetNoise(x, y);
+            }
+        }
+
+
+        // Do something with this data... 
+    }
+}
