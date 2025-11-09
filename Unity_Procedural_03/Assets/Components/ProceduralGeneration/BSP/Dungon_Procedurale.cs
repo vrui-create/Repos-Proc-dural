@@ -46,7 +46,7 @@ public class  Node_Dungon
 
     }
 
-    private void Split()
+    /*private void Split()
     {
         RectInt splitBoundsLeft = default;
         RectInt splitBoundsRight = default;
@@ -90,7 +90,7 @@ public class  Node_Dungon
 
         _gridGenerator._nodes.Add(_child1);
         _gridGenerator.Tree.Add(_child2);
-    }
+    }*/
 
 
 
