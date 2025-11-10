@@ -8,24 +8,34 @@ using UnityEngine;
 using VTools.Grid;
 using VTools.ScriptableObjectDatabase;
 
+// ce code permet de créer un menu déroulant dans unity pour choisir le type de génération procédurale
 [CreateAssetMenu(menuName = "Procedural Generation Method/Noise_Automata")]
-public class Noise_Procedural : ProceduralGenerationMethod
+// au lieu de hériter de monobehaviour on hérite de ProceduralGenerationMethod, elle nous permet d'accéder à la grille et au générateur de grille
+public class Noise_Procedural : ProceduralGenerationMethod 
 {
+    //En utiliser protected override async UniTask ApplyGeneration(CancellationToken cancellationToken) permetant d'appliquer la génération procédurale
     protected override async UniTask ApplyGeneration(CancellationToken cancellationToken)
     {
+        //J'ai utiliser c'est variables pour définir les différents types de terrain que je vais utiliser pour générer la map
+        //tout fois il y a des méthode plus optimisé pour récupérer des ScriptableObject mais tant que ça fonctionne  je ne touche plus
         var FondGrass = ScriptableObjectDatabase.GetScriptableObject<GridObjectTemplate>("Grass");
         var FondSable = ScriptableObjectDatabase.GetScriptableObject<GridObjectTemplate>("Sand");
         var FondEau  = ScriptableObjectDatabase.GetScriptableObject<GridObjectTemplate>("Water");
         var FondForet  = ScriptableObjectDatabase.GetScriptableObject<GridObjectTemplate>("Foret");
 
+        // j'ai définit une variable permetant d'utiliser l'aléatoire pour modifier l'emplacement du terrain
         int Scale_Map = Random.Range(1234, 3000);
+
+
+        // le FastNoiseLite qui est un algorithme intégrer depuis le réseau me permet de générer un nouveau song.
         FastNoiseLite noise = new FastNoiseLite(Scale_Map);
-        //FastNoiseLite noise = new FastNoiseLite(GridGenerator._seed);
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
 
-        // Gather noise data
+        //Le Grid.width permet compter la Largeur d'une grille.
+        //Le Grid.Lenght c'est la taille max d'une grille
         float[,] noiseData = new float[Grid.Width, Grid.Lenght];
 
+        //Ce code ci dessous permet d'utiliser un sound, celan l'intensiter du song elle nous permet de placer a t'elle corp donner
         for (int x = 0; x < Grid.Width; x++)
         {
             for (int y = 0; y < Grid.Lenght; y++)
@@ -37,7 +47,9 @@ public class Noise_Procedural : ProceduralGenerationMethod
                 }
                 if (noiseData[x, y] < 0.05)
                 {
-                    GridGenerator.AddGridObjectToCell(cell, FondForet, true); // ajoute un élément sur la grid
+                   // le cell et permet de reuinir la position x et y
+                   //Le FondForêt ces les variable dit en haus
+                    GridGenerator.AddGridObjectToCell(cell, FondForet, true);  //ce code permet d'ajouter une nouvelle élément dans notre grille
                 }
                 else if (noiseData[x, y] < 0.3)
                 {
@@ -54,6 +66,8 @@ public class Noise_Procedural : ProceduralGenerationMethod
 
             }
             
+
+
         }
     }
 }

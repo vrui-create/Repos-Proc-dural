@@ -111,7 +111,6 @@ public class  Node_Dungon
         _child1.ConnectSisters();
         _child2.ConnectSisters();
     }
-
     private void ConnectNodes(Node_Dungon node1, Node_Dungon node2)
     {
         var center1 = node1.GetLastChild()._Salle.GetCenter();
@@ -190,7 +189,7 @@ public class  Node_Dungon
         {
             for (int x = iMin; x <= iMax; x++)
             {
-                if (!_gridGenerator.Grid.TryGetCellByCoordinates(x, Y_carret, out var cell))
+                if (!_gridGenerator.Grid.TryGetCellByCoordinates(x, Y_carret, out var cell)) // la var cell est utiliser
                     continue;
 
                 var groundTemplate = ScriptableObjectDatabase.GetScriptableObject<GridObjectTemplate>("Corridor");
