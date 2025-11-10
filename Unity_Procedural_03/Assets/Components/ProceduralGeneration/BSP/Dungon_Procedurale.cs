@@ -40,7 +40,7 @@ public class  Node_Dungon
     public Node_Dungon(RandomService randomService, Dungon_Procedurale bsp2, RectInt Salle)
     {
         _randomService = randomService;
-        _gridGenerator= bsp2.GridGenerator;
+        //_gridGenerator= bsp2.GridGenerator;
         _Dungon_Procedurale = bsp2;
         _Salle = Salle;
 

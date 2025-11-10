@@ -6,7 +6,8 @@ public class Iteam_Collider : MonoBehaviour
     private bool Block_input = false;
     public GameObject TargetDestroy;
     public string Iteam_id;
-
+    public CS_Player Player_CS;
+    
 
     private void OnTriggerEnter(Collider other)//permet de détecter si un objet entre en collision avec le collider
     {
@@ -32,7 +33,7 @@ public class Iteam_Collider : MonoBehaviour
             switch(Iteam_id)
                 {
                 case "Pile":
-                    print("Pile");
+                    Player_CS.Recharge("Pile");
                     Destroy(TargetDestroy);
                     break;
                 case "Soin":
@@ -40,7 +41,7 @@ public class Iteam_Collider : MonoBehaviour
                     Destroy(TargetDestroy);
                     break;
                 case "Munition":
-                    print("Munition");
+                    Player_CS.Recharge("Munition");
                     Destroy(TargetDestroy);
                     break;
                 default:

@@ -14,7 +14,7 @@ namespace Components.ProceduralGeneration
         [SerializeField] protected int _maxSteps = 1000;
 
         // Injected at runtime, not serialized
-        [NonSerialized] public ProceduralGridGenerator GridGenerator;
+        [NonSerialized] protected ProceduralGridGenerator GridGenerator;
         [NonSerialized] protected RandomService RandomService;
         [NonSerialized] private CancellationTokenSource _cancellationTokenSource;
 
@@ -73,12 +73,12 @@ namespace Components.ProceduralGeneration
         protected bool CanPlaceRoom(RectInt room, int spacing)
         {
             // optional spacing: extend by one tile around for buffer
-            int xMin = Mathf.Max(room.xMin - spacing, 0);//En définit le point de départ ici en x minimum
-            int yMin = Mathf.Max(room.yMin - spacing, 0);//En définit le point de départ ici en y minimum
-            int xMax = Mathf.Min(room.xMax + spacing, Grid.Width);//En définit le point de fin, ici en x max 
-            int yMax = Mathf.Min(room.yMax + spacing, Grid.Lenght);//En définit le point de fin, ici en y max 
+            int xMin = Mathf.Max(room.xMin - spacing, 0);
+            int yMin = Mathf.Max(room.yMin - spacing, 0);
+            int xMax = Mathf.Min(room.xMax + spacing, Grid.Width);
+            int yMax = Mathf.Min(room.yMax + spacing, Grid.Lenght);
 
-            for (int ix = xMin; ix < xMax; ix++)// il lance ça boucle pour sur chaque ligne
+            for (int ix = xMin; ix < xMax; ix++)
             {
                 for (int iy = yMin; iy < yMax; iy++)
                 {

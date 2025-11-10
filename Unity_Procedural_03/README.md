@@ -1,10 +1,10 @@
 # Repos-Proc-dural
 
-//Explication générale de l'architecture.
-D'apres moi la Grid est une structure permettant de générer a la fois l'espace pour placer nos éléments, une êtape pour faire de la procedural.
-On peut le définir comme cela: 
+//Explication gï¿½nï¿½rale de l'architecture.
+D'apres moi la Grid est une structure permettant de gï¿½nï¿½rer a la fois l'espace pour placer nos ï¿½lï¿½ments, une ï¿½tape pour faire de la procedural.
+On peut le dï¿½finir comme cela: 
 Grid.Width pour savoir la hauteur, Grid.Lenght pour savoir la largeur d'un RectInt.
-Elles est souvant utiliser pour créer une scéne procedurale.
+Elles est souvant utiliser pour crï¿½er une scï¿½ne procedurale.
  for (int x = 0; x < Grid.Width; x++)
         {
             for (int y = 0; y < Grid.Lenght; y++)
@@ -13,7 +13,7 @@ Elles est souvant utiliser pour créer une scéne procedurale.
         }
 
 
-Le cell est une unité élémentaire de la grille. elle est utiliser dans cette exemple
+Le cell est une unitï¿½ ï¿½lï¿½mentaire de la grille. elle est utiliser dans cette exemple
 
                 noiseData[x, y] = noise.GetNoise(x, y);
                 if (!Grid.TryGetCellByCoordinates(x, y, out var cell)) <----------------
@@ -23,21 +23,23 @@ Le cell est une unité élémentaire de la grille. elle est utiliser dans cette exe
                 if (noiseData[x, y] < 0.05)
                 {
                     //ce code permet de placer a telle grille
-                    GridGenerator.AddGridObjectToCell(cell, FondForet, true); // ajoute un élément sur la grid
+                    GridGenerator.AddGridObjectToCell(cell, FondForet, true); // ajoute un ï¿½lï¿½ment sur la grid
                 }
 
-Le cell est souvant utiliser dans pour créer des mondes procéduraux, mais aussi pour organiser des éléments dans une interface utilisateur.
+Le cell est souvant utiliser dans pour crï¿½er des mondes procï¿½duraux, mais aussi pour organiser des ï¿½lï¿½ments dans une interface utilisateur.
 
 
-Et la ProceduralGenerationMethod, est a peu prés un pré-code.
-Elle est utiles pour générarer une map procedural. Comme générer des salle aléatoire pour ensuite les ruinir
 
 
-Pour ajouter une nouvelle Algorithme architecturale, il faut suivre les étapes suivantes:
-1. [CreateAssetMenu(menuName = "Procedural Generation Method/NOM_de_votre_script_")]  //NOM_de_votre_script_" a la place vous devrier mêttre votre nom du scripte.
-2. Renommer ta heriachie Nom-Script : ProceduralGenerationMethod. comme ça en puis utiliser le parent ProceduralGenerationMethod pour faire des références.
-3. Dans l'onglet projet vous devrier clique droite> Create Procedural Génération Mêthode.
-Voila les étapes a suivre
+Et la ProceduralGenerationMethod, est a peu prï¿½s un prï¿½-code.
+Elle est utiles pour gï¿½nï¿½rarer une map procedural. Comme gï¿½nï¿½rer des salle alï¿½atoire pour ensuite les ruinir
+
+
+Pour ajouter une nouvelle Algorithme architecturale, il faut suivre les ï¿½tapes suivantes:
+1. [CreateAssetMenu(menuName = "Procedural Generation Method/NOM_de_votre_script_")]  //NOM_de_votre_script_" a la place vous devrier mï¿½ttre votre nom du scripte.
+2. Renommer ta heriachie Nom-Script : ProceduralGenerationMethod. comme ï¿½a en puis utiliser le parent ProceduralGenerationMethod pour faire des rï¿½fï¿½rences.
+3. Dans l'onglet projet vous devrier clique droite> Create Procedural Gï¿½nï¿½ration Mï¿½thode.
+Voila les ï¿½tapes a suivre
 
  public abstract class ProceduralGenerationMethod : ScriptableObject
     {
@@ -90,8 +92,8 @@ Voila les étapes a suivre
 
 
 
-//Ce code permet d'évite que deux générations s’exécutent en même temps.
-//Annule proprement la précédente si une nouvelle démarre.
+//Ce code permet d'ï¿½vite que deux gï¿½nï¿½rations sï¿½exï¿½cutent en mï¿½me temps.
+//Annule proprement la prï¿½cï¿½dente si une nouvelle dï¿½marre.
  public async UniTask Generate()
         {
             // Cancel any ongoing generation
@@ -134,16 +136,16 @@ Voila les étapes a suivre
 
 
 
-//ce bout code si dessou permet de vêrifier si a t'elle la zone cibler est occuper ou non
+//ce bout code si dessou permet de vï¿½rifier si a t'elle la zone cibler est occuper ou non
 protected bool CanPlaceRoom(RectInt room, int spacing)
         {
             // optional spacing: extend by one tile around for buffer
-            int xMin = Mathf.Max(room.xMin - spacing, 0);//En définit le point de départ ici en x minimum
-            int yMin = Mathf.Max(room.yMin - spacing, 0);//En définit le point de départ ici en y minimum
-            int xMax = Mathf.Min(room.xMax + spacing, Grid.Width);//En définit le point de fin, ici en x max 
-            int yMax = Mathf.Min(room.yMax + spacing, Grid.Lenght);//En définit le point de fin, ici en y max 
+            int xMin = Mathf.Max(room.xMin - spacing, 0);//En dï¿½finit le point de dï¿½part ici en x minimum
+            int yMin = Mathf.Max(room.yMin - spacing, 0);//En dï¿½finit le point de dï¿½part ici en y minimum
+            int xMax = Mathf.Min(room.xMax + spacing, Grid.Width);//En dï¿½finit le point de fin, ici en x max 
+            int yMax = Mathf.Min(room.yMax + spacing, Grid.Lenght);//En dï¿½finit le point de fin, ici en y max 
 
-            for (int ix = xMin; ix < xMax; ix++)// il lance ça boucle pour sur chaque ligne
+            for (int ix = xMin; ix < xMax; ix++)// il lance ï¿½a boucle pour sur chaque ligne
             {
                 for (int iy = yMin; iy < yMax; iy++)
                 {
@@ -156,7 +158,7 @@ protected bool CanPlaceRoom(RectInt room, int spacing)
         }
 
 
-//Ce code si dessous permet d'ajouter un élément sur notre grid, les condition d'activation se trouver dans CanPlaceRoom
+//Ce code si dessous permet d'ajouter un ï¿½lï¿½ment sur notre grid, les condition d'activation se trouver dans CanPlaceRoom
  protected void AddTileToCell(Cell cell, string tileName, bool overrideExistingObjects)
         {
             var tileTemplate = ScriptableObjectDatabase.GetScriptableObject<GridObjectTemplate>(tileName);

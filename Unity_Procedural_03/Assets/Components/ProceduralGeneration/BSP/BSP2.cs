@@ -53,7 +53,7 @@ public class Node
     {
         _randomService = randomService;
         _bsp2 = bsp2;
-        _gridGenerator = bsp2.GridGenerator;////
+        //_gridGenerator = bsp2.GridGenerator;////
         _room = room;
         
         Split();
