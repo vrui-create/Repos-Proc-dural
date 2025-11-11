@@ -55,5 +55,29 @@ public class Noise_Procedural : ProceduralGenerationMethod  <---  /Attention, po
             }
         }
     } <----------------------------<---------------------//Maintenant il faudrat créer un une cellule Automata: 
-    -----------------------------------------------------//Document>Projet> click droite> créated> Procedural Generation Method> select le nom de votre script
-}
+}-----------------------------------------------------//Document>Projet> click droite> créated> Procedural Generation Method> select le nom de votre script
+..
+...
+..
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+..
+...
+..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
