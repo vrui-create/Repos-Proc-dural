@@ -5,7 +5,7 @@ namespace VTools.RandomService
     public class RandomService
     {
         public System.Random Random { get; }
-        public int Seed { get; }
+        public int Seed { get; set; }
 
         public RandomService(int seed)
         {
@@ -13,6 +13,11 @@ namespace VTools.RandomService
             Seed = seed;
         }
         
+        public void SET_SEED_VATEA(int seedVatsBSP)
+        {
+            Seed = seedVatsBSP;
+        }
+
         // ----------------------------------------- METHODS -------------------------------------------------
 
         /// Returns a random integer between min [inclusive] and max [exclusive]

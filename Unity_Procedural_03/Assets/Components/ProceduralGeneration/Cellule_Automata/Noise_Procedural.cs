@@ -1,9 +1,6 @@
 using Components.ProceduralGeneration;
 using Cysharp.Threading.Tasks;
-using NUnit.Framework;
-using System.Collections.Generic;
 using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 using VTools.Grid;
 using VTools.ScriptableObjectDatabase;
@@ -26,8 +23,6 @@ public class Noise_Procedural : ProceduralGenerationMethod
         // j'ai définit une variable permetant d'utiliser l'aléatoire pour modifier l'emplacement du terrain
         int Scale_Map = Random.Range(1234, 3000);
 
-
-        // le FastNoiseLite qui est un algorithme intégrer depuis le réseau me permet de générer un nouveau song.
         FastNoiseLite noise = new FastNoiseLite(Scale_Map);
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
 
@@ -63,11 +58,7 @@ public class Noise_Procedural : ProceduralGenerationMethod
                 {
                     GridGenerator.AddGridObjectToCell(cell, FondEau, true);
                 }
-
             }
-            
-
-
         }
     }
 }

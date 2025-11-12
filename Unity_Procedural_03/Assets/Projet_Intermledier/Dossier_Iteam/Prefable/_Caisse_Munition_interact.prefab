@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetDestroy: {fileID: 8548762601899933826}
   Iteam_id: Munition
+  Player_CS: {fileID: 0}
 --- !u!1 &8548762601899933826
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,15 +194,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3768783ad83322141bb4c2eecd9da7c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7493999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3768783ad83322141bb4c2eecd9da7c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3768783ad83322141bb4c2eecd9da7c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3768783ad83322141bb4c2eecd9da7c0, type: 3}
       propertyPath: m_LocalRotation.w
