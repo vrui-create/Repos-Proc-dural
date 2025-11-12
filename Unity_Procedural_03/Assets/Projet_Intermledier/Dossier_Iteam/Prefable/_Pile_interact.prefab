@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetDestroy: {fileID: 3403239768072411933}
   Iteam_id: Pile
+  Player_CS: {fileID: 0}
+  Image_interaction_E: {fileID: 0}
 --- !u!1001 &302086385080017484
 PrefabInstance:
   m_ObjectHideFlags: 0
