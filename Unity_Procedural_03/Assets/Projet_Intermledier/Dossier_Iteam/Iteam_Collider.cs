@@ -15,7 +15,7 @@ public class Iteam_Collider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")//si l'objet qui entre en collision est le joueur
         {
-            print("entrer en collision avec un iteam");
+            Player_CS = other.GetComponent<CS_Player>();
             Block_input = true;
             OnOFF_UE_Bouton_E(true);
         }
