@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8582061462370238134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -124,8 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4044591a39e8f2f4997a9b0c87be12c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PV_Monstre: 25
-  target: {fileID: 0}
+  Prefable_ATK_Joueur: {fileID: 6846825572659041620, guid: 7703d1b0d74a3a44fb2e2ae4ce1e9022, type: 3}
 --- !u!54 &294440618456712269
 Rigidbody:
   m_ObjectHideFlags: 0

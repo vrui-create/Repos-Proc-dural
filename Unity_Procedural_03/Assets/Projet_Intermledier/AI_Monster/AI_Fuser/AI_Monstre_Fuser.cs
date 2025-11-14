@@ -10,6 +10,7 @@ public class AI_Monstre_Fuser : MonoBehaviour
 
     GameObject TargetPlayer;
     CS_Player cS_Player;
+    private Animator animator;
     private float _speed = 3f;
     bool move = true;
     //bool Attache = false;
@@ -24,6 +25,7 @@ public class AI_Monstre_Fuser : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         cS_Player = FindObjectOfType<CS_Player>();
         TargetPlayer = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     /*private void OnTriggerEnter(Collider other)
@@ -48,7 +50,10 @@ public class AI_Monstre_Fuser : MonoBehaviour
         }
     }*/
 
-    private void Cadence_Degat_player()
+    
+
+
+    public void Cadence_Degat_player()
     {
         GameObject projectile = Instantiate(Prefable_ATK_Joueur, transform.position, Quaternion.identity);
         SecureAtkJoueur = false;
@@ -67,7 +72,11 @@ public class AI_Monstre_Fuser : MonoBehaviour
             else if (!SecureAtkJoueur)
             {
                 SecureAtkJoueur = true;
-                Invoke("Cadence_Degat_player", 2f);
+                if (animator != null)
+                {
+                    animator.SetTrigger("ATK");
+                    Invoke("Cadence_Degat_player", 2.8f);
+                }
             }
             transform.LookAt(TargetPlayer.transform);
         }
@@ -84,9 +93,14 @@ public class AI_Monstre_Fuser : MonoBehaviour
         {
             if (PV_Monstre - damage > 0)
             {
-                PV_Monstre -= damage;
-                move = false;
-                Invoke("DontStuck", 2f);
+                    PV_Monstre -= damage;
+                    move = false;
+                if (animator != null)
+                {
+                    animator.SetTrigger("STUN");
+                    animator.Play("_A_Skelette_A_Phantom_Stun");
+                }
+                //Invoke("DontStuck", 2f);
                 print($"PV RESTANT DU MONSTRE: {PV_Monstre}");
             }
             else if (PV_Monstre - damage <= 0)//(cS_Player != null && cS_Player.UI_Player != null)

@@ -6,9 +6,10 @@ public class ColliderSphere_ATK_Joueur : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 2);
     }
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         CS_Player cS_Player;
 
@@ -22,4 +23,5 @@ public class ColliderSphere_ATK_Joueur : MonoBehaviour
             }
         }
     }
+    
 }
