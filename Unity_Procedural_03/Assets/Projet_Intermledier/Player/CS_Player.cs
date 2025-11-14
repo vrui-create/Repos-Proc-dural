@@ -12,6 +12,11 @@ public class CS_Player : MonoBehaviour
     public GameObject Prefable_Projectile;
     public Transform cam;
     public Animator UI_Player;
+
+    public AudioClip mySoundClip;  // Le clip audio que tu veux jouer
+    private AudioSource audioSource_ATK;
+    public Animator Shootgun_Animator;
+
     private FirstPersonController Ref_Autre_Controller;
 
     public float Affiche_UI_Eau_sur_quelle_position;
@@ -32,6 +37,8 @@ public class CS_Player : MonoBehaviour
         Ref_Autre_Controller = FindObjectOfType<FirstPersonController>();
         PV_JoueurMax = PV_Joueur = 4;
         Recharge_Pile = 1;
+        audioSource_ATK = gameObject.AddComponent<AudioSource>();
+        audioSource_ATK.clip = mySoundClip;
     }
 
     private void Update()
@@ -40,6 +47,9 @@ public class CS_Player : MonoBehaviour
         {
             spawnProjectile();
             Restant_Munition_FusilPompe--;
+            audioSource_ATK.Play();
+            Shootgun_Animator.Play("A_ShotGun_Fire");
+            Shootgun_Animator.SetTrigger("Fire");
             prochainTir = Time.time + cadence;
         }
         if (transform.position.y<= Affiche_UI_Eau_sur_quelle_position)

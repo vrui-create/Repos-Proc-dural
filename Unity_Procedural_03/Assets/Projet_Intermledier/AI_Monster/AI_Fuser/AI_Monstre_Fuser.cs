@@ -1,6 +1,7 @@
 using System.Threading;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
@@ -17,6 +18,11 @@ public class AI_Monstre_Fuser : MonoBehaviour
 
     Rigidbody _rb;
 
+    public AudioClip[] mySoundClip;  // Le clip audio que tu veux jouer
+    private AudioSource audioSource_ATK;  // L'AudioSource qui va jouer le son
+    private AudioSource audioSource_Idle;  // L'AudioSource qui va jouer le son
+    private AudioSource audioSource_HIT;  // L'AudioSource qui va jouer le son
+
     public GameObject Prefable_ATK_Joueur;
     bool SecureAtkJoueur = false;
 
@@ -26,6 +32,16 @@ public class AI_Monstre_Fuser : MonoBehaviour
         cS_Player = FindObjectOfType<CS_Player>();
         TargetPlayer = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
+
+        audioSource_Idle = gameObject.AddComponent<AudioSource>();
+        audioSource_Idle.clip = mySoundClip[0];
+
+        audioSource_HIT = gameObject.AddComponent<AudioSource>();
+        audioSource_HIT.clip = mySoundClip[1];
+
+        audioSource_ATK = gameObject.AddComponent<AudioSource>();
+        audioSource_ATK.clip = mySoundClip[2];
+        SpawnSound("idle");
     }
 
     /*private void OnTriggerEnter(Collider other)
@@ -50,7 +66,48 @@ public class AI_Monstre_Fuser : MonoBehaviour
         }
     }*/
 
-    
+    public void SpawnSound(string TypeSound)
+    {
+        switch (TypeSound)
+        {
+            case "idle":
+                audioSource_Idle.loop = true;
+                audioSource_Idle.Play();
+                break;
+            case "hit":
+                audioSource_HIT.Play();
+                break;
+            case "ATK":
+                audioSource_ATK.Play();
+                break;
+        }
+    }
+
+    public void destroySound(string TypeSound)
+    {
+        switch (TypeSound)
+        {
+            case "idle":
+                audioSource_Idle.Stop();
+                break;
+            case "hit":
+                audioSource_HIT.Stop();
+                break;
+            case "ATK":
+                audioSource_ATK.Stop();
+                break;
+            case "all":
+                audioSource_Idle.Stop();
+                audioSource_HIT.Stop();
+                audioSource_ATK.Stop();
+                break;
+        }
+    }
+
+
+
+
+
 
 
     public void Cadence_Degat_player()
