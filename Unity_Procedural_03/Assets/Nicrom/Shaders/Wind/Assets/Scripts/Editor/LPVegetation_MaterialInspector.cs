@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+﻿/*using UnityEditor;
 using UnityEngine;
 
 namespace Nicrom {
@@ -26,7 +26,7 @@ namespace Nicrom {
 
         public void FindProperties(MaterialProperty[] mProps)
         {
-            metallic                    = FindProperty("_Metallic", mProps);
+            *//*metallic                    = FindProperty("_Metallic", mProps);
             smoothness                  = FindProperty("_Smoothness", mProps);
 
             mainTex                     = FindProperty("_MainTex", mProps);
@@ -42,7 +42,7 @@ namespace Nicrom {
             mbPhase                     = FindProperty("_MBPhase", mProps);
             mbWindDirection             = FindProperty("_MBWindDir", mProps);
             mbWindDirectionOffset       = FindProperty("_MBWindDirOffset", mProps);
-            mbMaxHeight                 = FindProperty("_MBMaxHeight", mProps);
+            mbMaxHeight                 = FindProperty("_MBMaxHeight", mProps);*//*
         }
 
         public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] mProps)
@@ -139,3 +139,4 @@ namespace Nicrom {
         }
     }
 }
+*/

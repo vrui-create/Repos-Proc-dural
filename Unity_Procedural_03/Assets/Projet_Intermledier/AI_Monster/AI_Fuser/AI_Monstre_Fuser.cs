@@ -1,9 +1,4 @@
-using System.Threading;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class AI_Monstre_Fuser : MonoBehaviour
 {

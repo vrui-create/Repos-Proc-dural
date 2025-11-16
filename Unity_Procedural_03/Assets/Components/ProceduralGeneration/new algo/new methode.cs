@@ -1,8 +1,7 @@
-using Components.ProceduralGeneration;
+/*using Components.ProceduralGeneration;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Threading;
-using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Procedural Generation Method/New algo")]
@@ -17,7 +16,7 @@ public class newmethode : ProceduralGenerationMethod
         //cancellationToken.ThrowIfCancellationRequested();
 
         GenerateTree();
-/*
+*//*
         foreach(var node  in _tree._all_leave)
         {
             PlaceRoom(node.CreateRoom()); 
@@ -37,7 +36,7 @@ public class newmethode : ProceduralGenerationMethod
         }
 
         Debug.Log(_tree._all_parent[0].child1.GetMid().x+","+ _tree._all_parent[0].child1.GetMid().y+" : "+ _tree._all_parent[0].child2.GetMid().x+"," + _tree._all_parent[0].child2.GetMid().y);
-*/
+*//*
 
     }
     private void PlaceRoom(RectInt room)
@@ -103,3 +102,4 @@ public class newmethode : ProceduralGenerationMethod
         //_tree = new BinearTree(_max_separ,size,RandomService);
     }
 }
+*/

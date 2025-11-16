@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ColliderSphere_ATK_Joueur : MonoBehaviour
@@ -12,8 +11,8 @@ public class ColliderSphere_ATK_Joueur : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         CS_Player cS_Player;
-
-        if (other.gameObject.tag == "Player")
+        cS_Player = other.GetComponent<CS_Player>();
+        if (other.gameObject.tag == "Player" && cS_Player != null)
         {
             cS_Player = other.GetComponent<CS_Player>();
             if (cS_Player != null)
